@@ -4,32 +4,62 @@
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+
+    <title></title>
 </head>
 <body>
-  <div class="row">
+<div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <div class="page-header">
-        <h1>Spacebook</h1>
-      </div>
-
-      <div class="posts">
-      </div>
-
-      <form class="beer-form">
-        <h3>Add a New Post</h3>
-
-        <div class="form-group">
-          <input type="text" id="post-name" class="form-control" placeholder="Post Text">
-          </input>
+        <div class="page-header">
+            <h1>Spacebook</h1>
         </div>
 
-        <button class="btn btn-primary add-post">Post</button>
-      </form>
+        <div class="posts">
+
+        </div>
+
+
+        <form class="beer-form">
+            <h3>Add a New Post</h3>
+
+            <div class="form-group">
+                <input type="text" id="post-name" class="form-control" placeholder="Post Text">
+                </input>
+            </div>
+
+            <button class="btn btn-primary add-post">Post</button>
+        </form>
 
     </div>
-  </div>
+</div>
 
-  <script src="main.js"></script>
+<script id="spaceBookTemplatePosts" type="text/x-handlebars-template">
+
+    <div class="post"><a href="#" class="remove">remove</a> <a href="#" class="show-comments">comments</a>
+        {{text}}
+
+        <input type="text" class="comment-name">
+        <button class="btn btn-primary add-comment">Post Comment</button>
+        <button class="btn btn-danger remove-comment">Remove Comment</button>
+    </div>
+
+
+</script>
+<script id="spaceBookTemplateComments" type="text/x-handlebars-template">
+    <div class="comments-container show">
+        <div class="comments-list">
+
+            {{#each comments}}
+            <div>{{text}}</div>
+            {{/each}}
+
+        </div>
+    </div>
+
+</script>
+
+
+<script src="main.js"></script>
 </body>
 </html>
